@@ -6,7 +6,13 @@
     // Add Alias
     "baseUrl": ".", 
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@module/*": ["src/module/*"],
+      "@components/*": ["src/components/*"],
+      "@core/*": ["src/@core/*"],
+      "@ui/*": ["src/@core/ui/*"],
+      "@shared/*": ["src/shared/*"],
+      "@layouts/*": ["src/components/layouts/*"],
     },
     "types": ["vite/client"],
 
@@ -14,7 +20,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "erasableSyntaxOnly": false, // jika ingin memetikan enum dan interface buat true
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
