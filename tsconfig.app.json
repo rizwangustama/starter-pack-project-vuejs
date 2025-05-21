@@ -8,11 +8,10 @@
     "paths": {
       "@/*": ["src/*"],
       "@module/*": ["src/module/*"],
-      "@components/*": ["src/components/*"],
-      "@core/*": ["src/@core/*"],
-      "@ui/*": ["src/@core/ui/*"],
+      "@components/*": ["src/shared/components/*"],
+      "@ui/*": ["src/shared/components/ui/*"],
       "@shared/*": ["src/shared/*"],
-      "@layouts/*": ["src/components/layouts/*"],
+      "@layouts/*": ["src/layouts/*"],
     },
     "types": ["vite/client"],
 
