@@ -1,11 +1,14 @@
 import { createApp } from 'vue'
 import '../style.css'
+// import '../assets/styles/style.css'
+
+// Components
 import App from '../App.vue'
-import router from '../app/routes/index.routes'
-import { createPinia } from 'pinia'
+
+// Plugins
+import { registerPlugins } from './plugins'
 
 // Initialize the app
 const app = createApp(App)
-app.use(createPinia())
-app.use(router)
+registerPlugins(app)
 app.mount('#app')

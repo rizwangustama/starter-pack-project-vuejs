@@ -4,12 +4,16 @@ import path from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-
+import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        transformAssetUrls
+      },
+    }),
     visualizer({ open: true }),
     Components({
       dirs: [
@@ -29,7 +33,15 @@ export default defineConfig({
         ],
         dts: './src/app/auto-imports.d.ts',
       }
-    )
+    ),
+    Vuetify(
+      { 
+        autoImport: true,
+        styles: {
+          configFile: './src/assets/styles/style.css'
+        }
+      }
+    ),
   ],
   // root application
   resolve: {
@@ -43,7 +55,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../../dist',
+    outDir: './production',
     emptyOutDir: true
   },
   server: {
@@ -53,6 +65,13 @@ export default defineConfig({
       protocol: 'ws', // tetap ws karena Vite belum support hmr tanpa ws secara native
       host: 'localhost',
       port: 3000
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        api: 'modern-compiler' // Modern Compiler
+      }
     }
   }
 })
