@@ -11,7 +11,7 @@
       "@components/*": ["src/shared/components/*"],
       "@ui/*": ["src/shared/components/ui/*"],
       "@shared/*": ["src/shared/*"],
-      "@layouts/*": ["src/components/layouts/*"],
+      "@layouts/*": ["src/layouts/*"],
     },
     "types": ["vite/client"],
 
