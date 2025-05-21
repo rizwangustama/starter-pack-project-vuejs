@@ -9,15 +9,19 @@ export default defineConfig({
     vue(),
     visualizer({ open: true })
   ],
+  // root: './src/app', // root application
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@modules': path.resolve(__dirname, 'src/modules'),
-      '@core': path.resolve(__dirname, 'src/@core'),
-      '@ui': path.resolve(__dirname, 'src/@core/ui'),
-      '@components': path.resolve(__dirname, 'src/components'),
+      '@ui': path.resolve(__dirname, 'src/shared/components/ui'),
       '@shared': path.resolve(__dirname, 'src/shared'),
-      '@layouts': path.resolve(__dirname, 'src/components/layouts'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@layouts': path.resolve(__dirname, 'src/layouts'),
     },
+  },
+  build: {
+    outDir: '../../dist',
+    emptyOutDir: true
   }
 })
